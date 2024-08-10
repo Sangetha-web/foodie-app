@@ -1,6 +1,18 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/pasikumla
+    url: jdbc:mysql://localhost:3306/foodie
     username: root
     password: Shanmugam@1
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # Automatically update the schema
+    show-sql: true    # Show SQL queries in the console
+    properties:
+      hibernate:
+        format_sql: true # Format SQL queries for readability
+
+
+
+
+
