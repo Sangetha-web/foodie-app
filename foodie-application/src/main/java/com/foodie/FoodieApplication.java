@@ -1,4 +1,4 @@
-package com.foodie.starter;
+package com.foodie;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
