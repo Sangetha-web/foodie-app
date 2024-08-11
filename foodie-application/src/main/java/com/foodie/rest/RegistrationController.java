@@ -4,6 +4,7 @@ import com.foodie.dto.CustomerRegisterResponse;
 import com.foodie.entity.CustomerRegisterRequest;
 import com.foodie.repository.CustomerRepository;
 import com.foodie.service.CustomerService;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +23,10 @@ public class RegistrationController {
     private CustomerRegisterResponse customerRegisterResponse;
 
     @PostMapping("/custReg")
-    public CustomerRegisterResponse saveCustomerInformation(@RequestBody CustomerRegisterRequest customer) {
+    public CustomerRegisterResponse saveCustomerInformation(@RequestBody @Valid CustomerRegisterRequest customer) {
         customerRegisterResponse = this.customerService.saveCustomerInformation(customer);
         return customerRegisterResponse;
     }
-
-
 
 
 }
