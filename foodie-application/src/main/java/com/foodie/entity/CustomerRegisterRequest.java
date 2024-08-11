@@ -1,13 +1,16 @@
 package com.foodie.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
 @Entity
-@Table(name = "Customer_information")
+@Table(name = "Customer_information1")
+@Data
 public class CustomerRegisterRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String custId;
+    private Long custId;
 
     @Column(name = "customer_name")
     private String custName;
@@ -15,6 +18,7 @@ public class CustomerRegisterRequest {
     @Column(name = "customer_phn")
     private String custPhn;
 
+    //@NotNull(message = "Email is required")
     @Column(name = "customer_email")
     private String email;
 

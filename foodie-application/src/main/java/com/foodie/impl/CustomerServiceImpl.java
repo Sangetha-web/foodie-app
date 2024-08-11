@@ -5,7 +5,9 @@ import com.foodie.entity.CustomerRegisterRequest;
 import com.foodie.repository.CustomerRepository;
 import com.foodie.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired

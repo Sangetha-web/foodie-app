@@ -6,6 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
+<<<<<<< HEAD
       ddl-auto: update # Automatically update the schema
     show-sql: true    # Show SQL queries in the console
     properties:
@@ -16,3 +17,10 @@ spring:
 
 
 
+=======
+      ddl-auto: update  # Automatically update the schema
+    show-sql: true      # Show SQL queries in the console
+    properties:
+      hibernate:
+        format_sql: true  # Format SQL queries for readability
+>>>>>>> 33fd96b86e06dc3269ff4b17c14fc8c20c9355be
