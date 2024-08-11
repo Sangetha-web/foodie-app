@@ -23,7 +23,7 @@ public class RegistrationController {
     private CustomerService customerService;
 
     @Autowired
-    HotelService hotelService;
+    private HotelService hotelService;
 
     private CustomerRegisterResponse customerRegisterResponse;
 

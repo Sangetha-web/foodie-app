@@ -6,7 +6,9 @@ import com.foodie.entity.register.HotelRegistrationRequest;
 import com.foodie.repository.HotelRepository;
 import com.foodie.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class HotelServiceImpl implements HotelService {
 
     @Autowired
