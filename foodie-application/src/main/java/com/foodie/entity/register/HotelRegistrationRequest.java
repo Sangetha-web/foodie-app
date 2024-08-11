@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Customer_information")
+@Table(name = "hotel_information")
 public class HotelRegistrationRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
