@@ -21,7 +21,7 @@ public class HotelRegistrationRequest {
     @Column(name="hotel_type")
     private String hotelType;
     @Column(name="phone_number")
-    private Long phoneNumber;
+    private String phoneNumber;
     @Column(name="password")
     private String password;
     @Column(name="address")
