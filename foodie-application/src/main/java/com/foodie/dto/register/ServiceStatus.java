@@ -1,4 +1,4 @@
-package com.foodie.dto;
+package com.foodie.dto.register;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerRegisterResponse {
-    private String statusCode;
-    private String statusMessage;
+public class ServiceStatus {
     private boolean success;
     private String message;
+    private String statusCode;
+    private String statusMessage;
 }
