@@ -36,7 +36,7 @@ public class RegistrationController {
     }
 
     @PostMapping("/hotel-reg")
-    HotelRegistrationResponse saveHotelRegistration(@RequestBody HotelRegistrationRequest hotelRegistrationRequest) {
+    public HotelRegistrationResponse saveHotelRegistration(@RequestBody HotelRegistrationRequest hotelRegistrationRequest) {
         hotelRegistrationResponse = hotelService.saveHotelRegistration(hotelRegistrationRequest);
         return hotelRegistrationResponse;
     }

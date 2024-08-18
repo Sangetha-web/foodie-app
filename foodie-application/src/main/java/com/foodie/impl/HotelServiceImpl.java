@@ -1,6 +1,9 @@
 package com.foodie.impl;
 
 import com.foodie.constants.Constant;
+import com.foodie.dto.hotel.HotelDetails;
+import com.foodie.dto.hotel.HotelLoginRequest;
+import com.foodie.dto.hotel.HotelLoginResponse;
 import com.foodie.dto.register.HotelRegistrationResponse;
 import com.foodie.entity.register.HotelRegistrationRequest;
 import com.foodie.repository.HotelRepository;
@@ -8,12 +11,13 @@ import com.foodie.service.HotelService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 public class HotelServiceImpl implements HotelService {
 
     @Autowired
-    HotelRepository hotelRepository;
+    private HotelRepository hotelRepository;
 
 
     @Override
@@ -35,6 +39,26 @@ public class HotelServiceImpl implements HotelService {
 
         }
         return hotelRegistrationResponse;
+    }
+
+    @Override
+    public HotelLoginResponse validateHotelLoginbyPhoneNumberREmailNumber(HotelLoginRequest loginRequest) {
+        HotelLoginResponse hotelLoginResponse = new HotelLoginResponse();
+        HotelDetails hotelDetails = new HotelDetails();
+        try {
+            HotelRegistrationRequest requestFromDB = hotelRepository.findByLoginIdAndPassword(loginRequest.getLoginId(), loginRequest.getPassword());
+            if (requestFromDB != null) {
+                hotelLoginResponse.setIsValid(true);
+                Long dbId = requestFromDB.getDbId();
+                hotelDetails = hotelRepository.findByDbId(dbId);
+                hotelLoginResponse.setHotelDetails(hotelDetails);
+            } else {
+                hotelLoginResponse.setIsValid(false);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Error occurred while login" + e.getMessage());
+        }
+        return hotelLoginResponse;
     }
 
     @Transactional

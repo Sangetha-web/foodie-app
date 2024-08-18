@@ -30,6 +30,6 @@ public class HotelRegistrationRequest {
     private String city;
     @Column(name="state")
     private String state;
-    @Column(name="zip")
-    private String zip;
+    @Column(name="zip_code")
+    private String zipCode;
 }
