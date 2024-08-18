@@ -1,16 +1,18 @@
-package com.foodie.entity;
+package com.foodie.entity.register;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Entity
-@Table(name = "Customer_information1")
+@Table(name = "Customer_information")
 @Data
 public class CustomerRegisterRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long custId;
+    private Long dbId;
+
+    @Column(name="cust_id")
+    private String custID;
 
     @Column(name = "customer_name")
     private String custName;

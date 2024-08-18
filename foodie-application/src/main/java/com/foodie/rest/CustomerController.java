@@ -1,32 +1,28 @@
-//package com.foodie.rest;
-//
-//import com.foodie.dto.CustomerRegisterResponse;
-//import com.foodie.entity.CustomerRegisterRequest;
-//import com.foodie.repository.CustomerRepository;
-//import com.foodie.service.CustomerService;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.*;
-//
-//@RestController
-//@CrossOrigin("http://localhost:4200/")
-//public class CustomerController {
-//
-//    private static final Logger log = LoggerFactory.getLogger(CustomerController.class);
-//    @Autowired
-//    private CustomerService customerService;
-//
-//
-//    private CustomerRegisterResponse customerRegisterResponse;
-//
-//    @PostMapping("/register/custReg")
-//    public CustomerRegisterResponse saveCustomerInformation(@RequestBody CustomerRegisterRequest customer) {
-//        customerRegisterResponse = this.customerService.saveCustomerInformation(customer);
-//        return customerRegisterResponse;
-//    }
-//
-//
-//
-//
-//}
+package com.foodie.rest;
+
+import com.foodie.dto.register.CustomerRegisterResponse;
+import com.foodie.dto.register.CustomerValidationResponse;
+import com.foodie.entity.register.CustomerLoginRequest;
+import com.foodie.entity.register.CustomerRegisterRequest;
+import com.foodie.service.CustomerService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@CrossOrigin("http://localhost:4200/")
+@RequestMapping("/cust")
+public class CustomerController {
+
+    @Autowired
+    private CustomerService customerService;
+    private CustomerRegisterResponse customerRegisterResponse;
+
+    @GetMapping("/login")
+    public CustomerValidationResponse validateCustLogin(@RequestBody CustomerLoginRequest request) {
+        CustomerValidationResponse res = new CustomerValidationResponse();
+        res = customerService.validateCustInfo(request);
+        return res;
+    }
+
+}
