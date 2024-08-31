@@ -2,8 +2,8 @@ package com.foodie.impl;
 
 import com.foodie.constants.Constant;
 import com.foodie.dto.hotel.HotelDetails;
-import com.foodie.dto.hotel.HotelLoginRequest;
-import com.foodie.dto.hotel.HotelLoginResponse;
+import com.foodie.dto.hotel.request.HotelLoginRequest;
+import com.foodie.dto.hotel.response.HotelLoginResponse;
 import com.foodie.dto.register.HotelRegistrationResponse;
 import com.foodie.entity.register.HotelRegistrationRequest;
 import com.foodie.repository.HotelRepository;
@@ -11,7 +11,6 @@ import com.foodie.service.HotelService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 @Service
 public class HotelServiceImpl implements HotelService {
@@ -51,6 +50,10 @@ public class HotelServiceImpl implements HotelService {
                 hotelLoginResponse.setIsValid(true);
                 Long dbId = requestFromDB.getDbId();
                 hotelDetails = hotelRepository.findByDbId(dbId);
+                hotelLoginResponse.setStatusCode(Constant.STATUS_CODE_200);
+                hotelLoginResponse.setSuccess(Constant.STATUS_SUCCESS);
+                hotelLoginResponse.setMessage(Constant.HOTEL_RETRIEVE_SUCCESS_MESSAGE);
+                hotelLoginResponse.setStatusMessage(Constant.STATUS_MSG_SUCCESS);
                 hotelLoginResponse.setHotelDetails(hotelDetails);
             } else {
                 hotelLoginResponse.setIsValid(false);
